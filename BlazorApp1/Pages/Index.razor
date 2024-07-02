@@ -1,0 +1,114 @@
+﻿@page "/"
+@inject ClipboardService ClipboardService
+
+<p>RANDOM FACE GENERATOR XD</p>
+<h1>@randomFace</h1>
+<br>
+<button class="btn btn-primary" @onclick="DoMagic">GENERATE</button>
+<button class="btn btn-primary" @onclick="CopyToClipboard">COPY FACE</button>
+
+
+
+@code {
+
+    private string randomFace = ":)";
+
+
+    int aha = 0;
+    public void DoMagic()
+    {
+        var rng = new Random();
+        aha = rng.Next(0, Faces.Length);
+        randomFace = Faces[aha];
+    }
+
+
+
+    async Task CopyToClipboard()
+    {
+        // Writing to the clipboard may be denied, so you must handle the exception
+        try
+        {
+            await ClipboardService.WriteTextAsync(Faces[aha]);
+        }
+        catch
+        {
+            Console.WriteLine("Cannot write text to clipboard");
+        }
+    }
+
+
+    private static readonly string[] Faces = new[]
+    {
+        "¯\\_(ツ)_/¯",
+        "( ͡° ͜ʖ ͡°)",
+        "( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)",
+        "ʕ•ᴥ•ʔ",
+        "ಠ_ಠ",
+        "'̿ ̿ ̿ ̿ ̿ ̿'̿'\\̵͇̿̿\\з=( ͠° ͟ʖ ͡°)=ε/̵͇̿̿/'̿̿ ̿ ̿ ̿ ̿ ̿",
+        "﴾͡๏̯͡๏﴿ O'RLY?",
+        "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+        "(づ￣ ³￣)づ",
+        "(╯°□°）╯︵ ┻━┻",
+        "༼ つ ಥ_ಥ ༽つ",
+        "ヾ(⌐■_■)ノ♪",
+        "ᕙ(⇀‸↼‶)ᕗ",
+        "ᕦ(ò_óˇ)ᕤ",
+        "ヽ༼ຈل͜ຈ༽ﾉ",
+        "ಥ_ಥ",
+        "ヽ༼ຈل͜ຈ༽ﾉ",
+        "(ง°ل͜°)ง",
+        "(｡◕‿◕｡)",
+        "☜(⌒▽⌒)☞",
+        "◔̯◔",
+        "[¬º-°]¬",
+        "(V) (°,,,,°) (V)",
+        "(屮ﾟДﾟ)屮 Y U NO",
+        "Yᵒᵘ Oᶰˡʸ Lᶤᵛᵉ Oᶰᶜᵉ",
+        "(っ^з^)♪♬",
+        "(°o•)",
+        "┬──┬ ノ(ò_óノ)",
+        "୧༼ಠ益ಠ༽︻╦╤─",
+        "(ಥ﹏ಥ)",
+        "o()xxxx[{::::::::::::::::::>",
+        "(̿▀̿‿ ̿▀̿ ̿)",
+        "┬┴┬┴┤(･_├┬┴┬┴",
+        "ε/̵͇̿̿/’̿’̿ ̿(◡︵◡)",
+        "(;´༎ຶД༎ຶ`)",
+        "╚(•⌂•)╝",
+        "✿ڿڰۣ—",
+        "(=^･ｪ･^=))ﾉ彡☆",
+        "	ʕ •́؈•̀)",
+        "	( •_•)O*¯`·.¸.·´¯`°Q(•_• )",
+        "(◞థ౪థ)ᴖ",
+        "	(눈_눈)",
+        "┌(◉ ͜ʖ◉)つ┣▇▇▇═──",
+        "༼ ༎ຶ ෴ ༎ຶ༽",
+        "\\m/_(> . <)_\\m/",
+        "ʕ♥ᴥ♥ʔ",
+        "ᕦ(⩾﹏⩽)ᕥ",
+        "[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]",
+        "~\'(≧▽≦)/~",
+        "┐｜･ิω･ิ#｜┌",
+        "ᕕ( ᐛ )ᕗ",
+        "༼つಠ益ಠ༽つ ─=≡ΣO))",
+        "┌П┐(ಠ_ಠ)",
+        "─=≡Σ((( つ◕ل͜◕)つ",
+        "(ノ ゜Д゜)ノ ︵ ǝןqɐʇ ɐ ǝʞıן ʇxǝʇ dıןɟ",
+        "(⌐■_■)︻╦╤─ (╥﹏╥)",
+        "¯\'(°_o)/¯",
+        "ヽ༼ຈل͜ຈ༽ﾉ",
+        "ᕕ(⌐■_■)ᕗ ♪♬",
+        "(ᕗ ͠° ਊ ͠° )ᕗ",
+        "( ✜︵✜ )",
+        "ƪ(ړײ)ƪ​​",
+        "ԅ(≖‿≖ԅ)",
+        "ヽ༼ ຈل͜ຈ༼ ▀̿̿Ĺ̯̿̿▀̿ ̿༽Ɵ͆ل͜Ɵ͆ ༽ﾉ",
+        "※\'(^o^)/※",
+        "( ˘ ³˘)ノ°ﾟº❍｡",
+        "ƸӜƷ",
+        "(‿|‿)",
+        "╭༼ ʘ̆~◞౪◟~ʘ̆ ༽╮",
+        "o͡͡͡͡͡͡╮༼;´༎ຶ.̸̸̸̸̸̸̸̸̸̸̸̸̸̸̨̨̨̨̨̨̨.̸̸̨̨۝ ༎ຶ༽╭o͡͡͡͡͡͡"
+    };
+}

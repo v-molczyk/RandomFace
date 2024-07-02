@@ -1,0 +1,40 @@
+﻿@inject IJSRuntime JSRuntime
+@page "/counter"
+
+<p>RANDOM NUMBER GENERATOR:</p>
+<p>TIME NOW: @time</p>
+<h1>@currentCount</h1>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<br>
+
+@code {
+    private int currentCount = 0;
+    public string time = DateTime.Now.ToString();
+    private void IncrementCount()
+    {
+        //currentCount++;
+        var rng = new Random();
+        int ehe = rng.Next(0, 666);
+        currentCount = ehe;    
+    }
+}
+
+<div id="webchat" style="height: 500px;"></div>
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // Replace with your Bot ID and App ID
+        var botId = "customlanmo-bot";
+        var appId = "a8f4835e-089c-44f8-84a8-30d42ce44464";
+
+        // Initialize Web Chat
+        await JSRuntime.InvokeVoidAsync("initializeWebChat", botId, appId);
+    }
+}
+
